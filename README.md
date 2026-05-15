@@ -74,8 +74,19 @@ Ahorcado/
 
 ## Capturas de pantalla
 
-### Juego en ejecución
 
+### Juego en ejecución
+<img width="1361" height="766" alt="Captura de pantalla 2026-05-15 115323" src="https://github.com/user-attachments/assets/a0bdde7a-0417-483a-9603-c164b63671bb" />
+
+
+
+### Pantalla de carga 
+<img width="1362" height="761" alt="Captura de pantalla 2026-05-15 115337" src="https://github.com/user-attachments/assets/3747199c-886f-4ae3-a35a-20598b106940" />
+
+
+
+## Partida termiada 
+<img width="1365" height="759" alt="Captura de pantalla 2026-05-15 115416" src="https://github.com/user-attachments/assets/9c116272-f437-4718-a7ae-431d2b7786f2" />
 
 
 
