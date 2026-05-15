@@ -3,7 +3,7 @@
 - **Alumno:** Euruviel Marquez Martinez 
 - **Docente:** Jorge Pedrozo Romero
 - **Fecha:** 14/05/2026
-- **Actividad:** Actividad #02 – Práctica .NET: Juego del Ahorcado
+- **Actividad:** Actividad #06 – Práctica .NET: Refactorización
 
 # Ahorcado en C# — ArqSoft S02
 
