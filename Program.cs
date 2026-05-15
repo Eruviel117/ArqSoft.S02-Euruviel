@@ -17,8 +17,13 @@ var motor = new Ahorcado.MotorAhorcado(repositorio);
 var ui = new Ahorcado.ConsolaUI(motor);
 
 Console.WriteLine("=== AHORCADO ===");
+ui.MostrarBienvenida();
+
+Console.WriteLine("=== AHORCADO ===");
 
 while (!motor.Ganado() && !motor.Perdido())
+
+    while (!motor.Ganado() && !motor.Perdido())
 {
     ui.MostrarTablero();
     char letra = ui.PedirLetra();

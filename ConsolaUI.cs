@@ -12,6 +12,29 @@ namespace Ahorcado
         {
             _motor = motor;
         }
+        public void MostrarBienvenida()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("╔══════════════════════════════════╗");
+            Console.WriteLine("║                                  ║");
+            Console.WriteLine("║        JUEGO DEL AHORCADO        ║");
+            Console.WriteLine("║                                  ║");
+            Console.WriteLine("╚══════════════════════════════════╝");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n  Adivina la palabra antes de que");
+            Console.WriteLine("  se complete el ahorcado...");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\n  Tienes 6 intentos. ¡Buena suerte!");
+            Console.ResetColor();
+
+            Console.WriteLine("\nPresiona cualquier tecla para comenzar...");
+            Console.ReadKey();
+        }
 
         public void MostrarTablero()
         {
