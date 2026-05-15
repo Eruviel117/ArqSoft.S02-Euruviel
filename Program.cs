@@ -8,6 +8,7 @@ if (opcion == "2")
 {
     var motor = new Ahorcado.MotorViborita();
     var ui = new Ahorcado.ConsolaUIViborita(motor);
+    ui.MostrarBienvenida(); // <- línea nueva
     Console.CursorVisible = false;
     while (!motor.Ganado() && !motor.Perdido())
     {
