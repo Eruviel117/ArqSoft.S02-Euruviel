@@ -9,7 +9,6 @@ if (opcion == "2")
     var motor = new Ahorcado.MotorViborita();
     var ui = new Ahorcado.ConsolaUIViborita(motor);
     Console.CursorVisible = false;
-
     while (!motor.Ganado() && !motor.Perdido())
     {
         ui.MostrarTablero();
@@ -20,7 +19,6 @@ if (opcion == "2")
         motor.Avanzar();
         Thread.Sleep(150);
     }
-
     ui.MostrarTablero();
     ui.MostrarMensaje(motor.Ganado()
         ? "\n¡Ganaste! Llegaste a 10 puntos."
