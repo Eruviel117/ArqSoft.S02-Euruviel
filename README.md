@@ -26,3 +26,48 @@ identificadas en la clase original (`Juego.cs`).
 | `Juego` controla turnos, dibuja el tablero, muestra mensajes y elige la palabra | SRP — Single Responsibility Principle |
 | Las palabras están hardcodeadas dentro del constructor | DIP — Dependency Inversion Principle |
 | Para agregar un segundo juego habría que modificar `Juego` directamente | OCP — Open/Closed Principle |
+
+---
+
+## Tecnologías usadas
+
+- **Lenguaje:** C# (.NET 10.0)
+- **IDE:** Visual Studio 2022
+- **Tipo de proyecto:** Console App
+- **Control de versiones:** Git + GitHub
+
+---
+
+## Principios SOLID aplicados
+
+| Situación | Principio violado | Solución aplicada |
+|---|---|---|
+| `Juego` controlaba turnos, tablero, mensajes y palabras | SRP | Se separó en clases con una sola responsabilidad |
+| Las palabras estaban hardcodeadas en el constructor | DIP | Se creó la interfaz `IRepositorioPalabras` |
+| Agregar un nuevo juego requería modificar `Juego` | OCP | Se extrajeron `MotorAhorcado` y `ConsolaUI` |
+
+---
+
+## Estructura del proyecto
+
+Ahorcado/
+├── Program.cs               # Punto de entrada con inyección de dependencias
+├── Juego.cs                 # Clase original (clase dios - versión inicial)
+├── IRepositorioPalabras.cs  # Interfaz para el repositorio de palabras
+├── PalabrasEnMemoria.cs     # Implementación del repositorio
+├── MotorAhorcado.cs         # Lógica del juego
+├── ConsolaUI.cs             # Interfaz de usuario en consola
+└── README.md
+
+---
+
+## Funcionalidades
+
+- Palabra secreta aleatoria de una lista predefinida
+- Muestra el tablero con guiones y letras adivinadas
+- Registra las letras ya usadas
+- Cuenta los intentos restantes (máximo 6)
+- Detecta victoria o derrota automáticamente
+- Opción de jugar de nuevo al terminar
+
+---
