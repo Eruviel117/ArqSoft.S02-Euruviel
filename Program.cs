@@ -30,6 +30,7 @@ else
     var repositorio = new Ahorcado.PalabrasEnMemoria();
     var motor = new Ahorcado.MotorAhorcado(repositorio);
     var ui = new Ahorcado.ConsolaUI(motor);
+    ui.MostrarBienvenida(); // <- agrega esta línea
 
     Console.WriteLine("=== AHORCADO ===");
 
