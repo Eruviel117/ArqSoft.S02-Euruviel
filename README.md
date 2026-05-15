@@ -56,8 +56,7 @@ con el juego de Viborita usando una interfaz común `IMotorJuego`.
 
 ## Estructura del proyecto
 
----
-
+```
 Ahorcado/
 ├── Program.cs                # Punto de entrada — menú para elegir juego
 ├── IMotorJuego.cs            # Interfaz común para los motores de juego
@@ -69,8 +68,7 @@ Ahorcado/
 ├── MotorViborita.cs          # Lógica del juego viborita
 ├── ConsolaUIViborita.cs      # UI de la viborita con colores
 └── README.md
-
----
+```
 
 
 ---
@@ -101,4 +99,16 @@ Ahorcado/
 ---
 
 ## Capturas del Juego 
+
+## Pantalla de inicio 
+
+<img width="1363" height="654" alt="Captura de pantalla 2026-05-15 130343" src="https://github.com/user-attachments/assets/f3987a83-c05b-413c-a6e9-e5b843647191" />
+
+## Pantalla de carga 
+
+<img width="1365" height="660" alt="Captura de pantalla 2026-05-15 130355" src="https://github.com/user-attachments/assets/1074d54b-919c-4cdf-bd2c-df71ab186bdc" />
+
+##Juego en ejecución
+
+<img width="1365" height="651" alt="Captura de pantalla 2026-05-15 130456" src="https://github.com/user-attachments/assets/cda3dba0-89f2-46fe-acc2-d4e1835dc3e8" />
 
