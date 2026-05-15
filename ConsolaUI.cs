@@ -17,16 +17,46 @@ namespace Ahorcado
         {
             Console.Clear();
             MostrarAhorcado();
+
+            // Intentos en color según cuántos quedan
+            if (_motor.IntentosRestantes <= 2)
+                Console.ForegroundColor = ConsoleColor.Red;
+            else if (_motor.IntentosRestantes <= 4)
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            else
+                Console.ForegroundColor = ConsoleColor.Green;
+
             Console.WriteLine($"Intentos restantes: {_motor.IntentosRestantes}");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Letras usadas: {string.Join(", ", _motor.LetrasUsadas)}");
+            Console.ResetColor();
+
             Console.Write("Palabra: ");
             foreach (char c in _motor.PalabraSecreta)
-                Console.Write(_motor.LetrasUsadas.Contains(c) ? c : '_');
+            {
+                if (_motor.LetrasUsadas.Contains(c))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(c);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write('_');
+                }
+                Console.Write(' ');
+            }
+            Console.ResetColor();
             Console.WriteLine();
 
             if (_motor.MostrarPista)
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
-            Console.WriteLine();
+                Console.ResetColor();
+            }
         }
 
         public char PedirLetra()
