@@ -1,4 +1,18 @@
-﻿var repositorio = new Ahorcado.PalabrasEnMemoria();
+﻿Console.WriteLine("Elige una categoría:");
+Console.WriteLine("  1 — Arquitectura");
+Console.WriteLine("  2 — POO");
+Console.WriteLine("  3 — .NET");
+Console.Write("Opción: ");
+var cat = Console.ReadLine();
+
+string categoria = cat switch
+{
+    "2" => "POO",
+    "3" => ".NET",
+    _ => "Arquitectura"
+};
+
+var repositorio = new Ahorcado.PalabrasEnMemoria(categoria);
 var motor = new Ahorcado.MotorAhorcado(repositorio);
 var ui = new Ahorcado.ConsolaUI(motor);
 
@@ -27,6 +41,7 @@ else
 
 if (ui.PreguntarOtraVez())
 {
-    var nuevoMotor = new Ahorcado.MotorAhorcado(repositorio);
+    var nuevoRepositorio = new Ahorcado.PalabrasEnMemoria(categoria);
+    var nuevoMotor = new Ahorcado.MotorAhorcado(nuevoRepositorio);
     var nuevaUI = new Ahorcado.ConsolaUI(nuevoMotor);
 }
