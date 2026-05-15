@@ -1,6 +1,6 @@
 # Tecnológico de Software
 - **Arquitectura de Software**
-- **Alumno:** [Tu nombre aquí]
+- **Alumno:** Euruviel Marquez Martinez 
 - **Docente:** Jorge Pedrozo Romero
 - **Fecha:** 14/05/2026
 - **Actividad:** Actividad #02 – Práctica .NET: Juego del Ahorcado
@@ -50,6 +50,7 @@ identificadas en la clase original (`Juego.cs`).
 
 ## Estructura del proyecto
 
+```
 Ahorcado/
 ├── Program.cs               # Punto de entrada con inyección de dependencias
 ├── Juego.cs                 # Clase original (clase dios - versión inicial)
@@ -58,8 +59,7 @@ Ahorcado/
 ├── MotorAhorcado.cs         # Lógica del juego
 ├── ConsolaUI.cs             # Interfaz de usuario en consola
 └── README.md
-
----
+```
 
 ## Funcionalidades
 
@@ -71,3 +71,121 @@ Ahorcado/
 - Opción de jugar de nuevo al terminar
 
 ---
+
+## Capturas de pantalla
+
+### Juego en ejecución
+
+
+
+
+---
+
+## Declaración de uso de Inteligencia Artificial
+
+| Campo | Detalle |
+|---|---|
+| **Nombre del estudiante** | Euruviel Marquez |
+| **IA utilizada** | Claude  |
+| **Fecha de uso** | 13/05/2026 |
+| **Propósito** | Arreglar errores a la hora de pegar el código |
+
+### Prompt utilizado:
+"Okey me dieron este codigo pero me marca error puedes estructurarlo mejor para que ya no me marque error"
+
+### Respuesta en crudo (raw):
+
+Paso 1 —  Crear la clase Juego
+Clic derecho en el proyecto Ahorcado → Agregar → Clase → nombre: Juego.cs
+Pega este código:
+csharpnamespace Ahorcado
+{
+    public class Juego
+    {
+        private List<string> _palabras = new()
+        {
+            "arquitectura", "interfaz", "polimorfismo",
+            "encapsulamiento", "herencia"
+        };
+        private string _palabraSecreta;
+        private List<char> _letrasUsadas;
+        private int _intentosRestantes;
+
+        public Juego()
+        {
+            var random = new Random();
+            _palabraSecreta = _palabras[random.Next(_palabras.Count)];
+            _letrasUsadas = new List<char>();
+            _intentosRestantes = 6;
+        }
+
+        public void Jugar()
+        {
+            Console.Clear();
+            Console.WriteLine("=== AHORCADO ===");
+
+            while (_intentosRestantes > 0)
+            {
+                MostrarTablero();
+
+                if (VerificarVictoria())
+                {
+                    Console.WriteLine("\n¡Ganaste! La palabra era: " + _palabraSecreta);
+                    Console.Write("¿Jugar otra vez? (s/n): ");
+                    if (Console.ReadLine()?ToLower() == "s")
+                        new Juego().Jugar();
+                    return;
+                }
+
+                Console.Write("\nIngresa una letra: ");
+                char letra = Console.ReadLine()[0];
+                if (Console.ReadLine()?[0] != null)
+                    ProcesarLetra(letra);
+            }
+
+            Console.WriteLine($"\n¡Perdiste! La palabra era: {_palabraSecreta}");
+        }
+
+        private void MostrarTablero()
+        {
+            // Dibujar el ahorcado según intentos restantes
+            Console.WriteLine($"\nIntentos restantes: {_intentosRestantes}");
+            
+            // Mostrar palabra con guiones
+            foreach (char c in _palabraSecreta)
+            {
+                Console.Write(_letrasUsadas.Contains(c) ? c + " " : "_ ");
+            }
+
+            Console.WriteLine($"\nLetras usadas: {string.Join(", ", _letrasUsadas)}");
+        }
+
+        private bool VerificarVictoria()
+        {
+            return _palabraSecreta.All(c => _letrasUsadas.Contains(c));
+        }
+
+        private void ProcesarLetra(char letra)
+        {
+            letra = char.ToLower(letra);
+            if (_letrasUsadas.Contains(letra))
+            {
+                Console.WriteLine("Ya usaste esa letra.");
+                return;
+            }
+
+            _letrasUsadas.Add(letra);
+
+            if (!_palabraSecreta.Contains(letra))
+                _intentosRestantes--;
+        }
+    }
+}
+
+Paso 2 — Modificar Program.cs
+Reemplaza el contenido de Program.cs con:
+csharpusing Ahorcado;
+
+new Juego().Jugar();
+
+
